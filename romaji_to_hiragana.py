@@ -32,12 +32,12 @@ hiragana = {
     "pya":"ぴゃ", "pyu":"ぴゅ", "pyo":"ぴょ"
 }
 
-# converts the typed romanji string to hiragana, based on the rules of 
+# converts the typed romaji string to hiragana, based on the rules of 
 # japanese word construction and using the above dictionary
-def rom_to_hira (romanji):
+def rom_to_hira (romaji):
     hira_str = ""
     ch = ""
-    for letter in romanji:
+    for letter in romaji:
         if ch == "n" and letter not in {"a","e","i","o","u"}:
             hira_str += hiragana[ch]
             ch = ""
@@ -53,8 +53,8 @@ def rom_to_hira (romanji):
     return hira_str
 
 # requests a word or character from the user until 'esc' is typed
-input_str = input("Give me a word (romanji)! ")
+input_str = input("Give me a word (romaji)! ")
 while input_str != "esc":
     hira = rom_to_hira(input_str)
     print(hira)
-    input_str = input("Give me a word (romanji)! ")
+    input_str = input("Give me a word (romaji)! ")
